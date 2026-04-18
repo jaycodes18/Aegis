@@ -1,0 +1,108 @@
+/* ─── Fonts ────────────────────────────────────────────────────────────────── */
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=jet-brains-mono@400,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ─── Hide system cursor (replaced by custom cursor) ────────────────────────── */
+* {
+  cursor: none !important;
+  box-sizing: border-box;
+}
+
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: #0d0e12;
+  color: #e2e5ed;
+  font-family: 'General Sans', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ─── Scrollbar styling ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #13151c;
+}
+::-webkit-scrollbar-thumb {
+  background: #262b38;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a4156;
+}
+
+/* ─── Selection ────────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(0, 200, 255, 0.2);
+  color: #e2e5ed;
+}
+
+/* ─── Animation delay utilities ────────────────────────────────────────────── */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+
+/* ─── Grid pattern overlay ──────────────────────────────────────────────────── */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(0,200,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,200,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Shimmer text ──────────────────────────────────────────────────────────── */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #00c8ff 0%,
+    #7c6fe0 30%,
+    #00c8ff 60%,
+    #7c6fe0 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ─── Glow border ───────────────────────────────────────────────────────────── */
+.border-glow {
+  border-color: rgba(0, 200, 255, 0.4);
+  box-shadow: 0 0 0 1px rgba(0,200,255,0.15), 0 0 20px rgba(0,200,255,0.08);
+}
+
+/* ─── Accessibility (tremor) mode overrides ─────────────────────────────────── */
+.tremor-mode {
+  font-size: 18px;
+}
+
+/* ─── Transition for theme switching ────────────────────────────────────────── */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* Reset transition for things that should animate differently */
+[data-no-transition],
+[data-no-transition] * {
+  transition: none !important;
+}
